@@ -1,0 +1,9 @@
+version: 1.2
+workflows:
+  - subclass: WDL
+    primaryDescriptorPath: /stripreads-bam/stripreads-bam_MS.wdl
+    testParameterFiles: /stripreads-bam/stripreads-bam_MS.json
+    authors:
+        - name: Brendan J. Pinto
+        email: bpinto2@asu.edu
+		orcid: 0000-0002-4243-5788
