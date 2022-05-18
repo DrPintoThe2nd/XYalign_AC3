@@ -1,0 +1,6 @@
+{
+"StripReadsFromBam.bam_to_reads_disk_size": "100",
+"StripReadsFromBam.bam_to_reads_mem_size": "40 GB",
+"StripReadsFromBam.SampleName": "reads",
+"StripReadsFromBam.StripReads.InputBam": "reads.bam"
+}
