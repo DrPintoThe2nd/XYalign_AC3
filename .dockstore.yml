@@ -1,5 +1,5 @@
 version: 1.2
 workflows:
-  - subclass: WDL
-    primaryDescriptorPath: /stripreads-bam/stripreads_bam.wdl
-    testParameterFiles: /stripreads-bam/stripreads_bam.json
+   - subclass: WDL
+     primaryDescriptorPath: /stripreads-bam/stripreads_bam.wdl
+     testParameterFiles:
