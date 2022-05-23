@@ -1,0 +1,7 @@
+{
+  "StripReadsFromBam.bam_to_reads_disk_size": "String",
+  "StripReadsFromBam.BamToReads.inputBam": "File",
+  "StripReadsFromBam.SampleName": "String",
+  "StripReadsFromBam.bam_to_reads_mem_size": "String"
+}
+
