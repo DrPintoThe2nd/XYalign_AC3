@@ -23,4 +23,5 @@ Step outlines:
 (5) Use GATK GenotypeGVCFs (and SelectVariants) on aggregated gVCF file for chr8 and chrX.
 
 #Calculate VCF stats....
+
 (6) Profit?
