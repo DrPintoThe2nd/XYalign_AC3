@@ -5,6 +5,7 @@ This repository stores custom WDLs for our project analyzing data using the Terr
 Step outlines:
 
 #Extracting reads previously mapped to GRCh38.
+
 (1) Converting CRAM files to BAM files (samtools, CRAM-to-BAM_multithreaded.wdl)
 
 (2) Stripping reads from the BAM files, pairing them and trimming them, with QC (samtools, bbmap, and trim_galore, StripReadsFromBams.wdl)
