@@ -267,7 +267,7 @@ workflow haplotype_calling_chrom {
 #            ploidy = 2,
 #            sampleName = sampleName
 #    }
-#    
+#
 #    call haplotypeCaller as hc22 {
 #        input:
 #            refFasta = refFasta,
@@ -294,10 +294,10 @@ workflow haplotype_calling_chrom {
 
   call MergeGVCFs {
     input:
-      input_chr8_vcfs = hc8.hcVCF,
-      input_chr8_vcfs_indexes = hc8.hcVCF_tbi,
-      input_chrX_vcfs = hcX.hcVCF,
-      input_chrX_vcfs_indexes = hcX.hcVCF_tbi,
+      input_chr8_vcfs = [hc8.hcVCF],
+      input_chr8_vcfs_indexes = [hc8.hcVCF_tbi],
+      input_chrX_vcfs = [hcX.hcVCF],
+      input_chrX_vcfs_indexes = [hcX.hcVCF_tbi],
       chr8_output_filename = chr8_output_filename,
       chrX_output_filename = chrX_output_filename
   }
@@ -407,7 +407,7 @@ task MergeGVCFs {
     String chr8_output_filename
     String chrX_output_filename
   }
-  
+
   command {
   set -e
 
