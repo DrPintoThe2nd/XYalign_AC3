@@ -1,0 +1,8 @@
+{
+  "joint_calling.refDict": "File",
+  "joint_calling.refFasta": "File",
+  "joint_calling.refIndex": "File",
+  "joint_calling.genomicsDBtar": "File",
+  "joint_calling.chromosome": "String"
+}
+
