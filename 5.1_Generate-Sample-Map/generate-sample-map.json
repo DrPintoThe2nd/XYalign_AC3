@@ -1,0 +1,10 @@
+{
+  "GenerateSampleMap.GenerateSampleMapFile.disk_space_gb": "Int (optional, default = 100)",
+  "GenerateSampleMap.GenerateSampleMapFile.docker": "String (optional, default = \"python:latest\")",
+  "GenerateSampleMap.file_paths": "Array[String]",
+  "GenerateSampleMap.GenerateSampleMapFile.machine_mem_gb": "Int (optional, default = 7)",
+  "GenerateSampleMap.GenerateSampleMapFile.preemptible_attempts": "Int (optional, default = 3)",
+  "GenerateSampleMap.sample_map_name": "String",
+  "GenerateSampleMap.sample_names": "Array[String]"
+}
+
