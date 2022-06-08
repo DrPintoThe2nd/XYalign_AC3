@@ -18,9 +18,13 @@ Step outlines:
 
 (4) Use GATK HaplotypeCaller (and MergeVcfs?) on chr8 and chrX for each individual (gatk, haplotype_calling_chrom_female.wdl)
 
-#Call variants by joint genotyping ...
+#Call variants by joint genotyping (3-steps)
 
-(5) Use GATK GenotypeGVCFs (and SelectVariants) on aggregated gVCF file for chr8 and chrX.
+(5.1) Generate a sample map for GATK's GenomicsDBImport function.
+
+(5.2) Generate a genomicsDB using GATK's GenomicsDBImport function.
+
+(5.3) Joint genotyping and filtering using GATK's GenotypeGVCFs function.
 
 #Calculate VCF stats....
 
