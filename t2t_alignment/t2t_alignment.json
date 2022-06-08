@@ -1,9 +1,0 @@
-{
-  "t2t_alignment.inputFastq1": "File",
-  "t2t_alignment.sampleName": "String",
-  "t2t_alignment.dedupDistance": "Int (optional, default = 100)",
-  "t2t_alignment.targetRef": "File",
-  "t2t_alignment.bwaIndexTar": "File",
-  "t2t_alignment.inputFastq2": "File"
-}
-
