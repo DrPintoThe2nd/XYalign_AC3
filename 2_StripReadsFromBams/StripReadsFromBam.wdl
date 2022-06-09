@@ -1,3 +1,5 @@
+#written by Brendan J. Pinto
+
 version 1.0 
 
 #WORKFLOW DEFINITION
@@ -20,6 +22,7 @@ call BamToReads {
 call RepairReads {
 	input:
 	Name = SampleName,
+	mem_size = bam_to_reads_mem_size,
 	inputReads = BamToReads.outputReads
         }
 
@@ -34,6 +37,10 @@ call TrimReads {
     output {
 		File trimR1 = TrimReads.trimR1
 		File trimR2 = TrimReads.trimR2
+        File FQChtmlR1 = TrimReads.FQChtmlR1
+        File FQCzipR1 = TrimReads.FQCzipR1
+        File FQChtmlR2 = TrimReads.FQChtmlR2
+        File FQCzipR2 = TrimReads.FQCzipR2
                 }
 }
 
@@ -74,6 +81,7 @@ task RepairReads {
     input {
     File inputReads
     String Name
+	String mem_size
 }
 
 command {
@@ -90,9 +98,9 @@ Int diskGb = ceil(10.0 * size(inputReads, "G"))
 
 runtime {
     docker: "drpintothe2nd/ac3_xysupp"
-    memory: "40G"
+    memory: mem_size
     cpu: "2"
-    disks: "local-disk ${diskGb} HDD"
+    disks: "local-disk " + "${diskGb}" + " HDD"
     }
     
 output {
@@ -114,7 +122,7 @@ command {
 set -e
 set -o pipefail
 
-trim_galore --paired --cores 4 ${inputR1} ${inputR2}
+trim_galore --fastqc --paired --cores 4 ${inputR1} ${inputR2}
 
     }
 
@@ -123,14 +131,18 @@ Int diskGb = ceil(10.0 * size(inputR1, "G"))
 
 runtime {
     docker: "drpintothe2nd/ac3_xysupp"
-    memory: "8G"
+    memory: "8 GB"
     cpu: "4"
-    disks: "local-disk ${diskGb} HDD"
+    disks: "local-disk " + "${diskGb}" + " HDD"
     }
     
 #Outputs a BAM and BAI with the same sample name
 output {
 	File trimR1 = "${Name}_R1_val_1.fq.gz"
 	File trimR2 = "${Name}_R2_val_2.fq.gz"
+	File FQChtmlR1 = "${Name}_R1_val_1_fastqc.html"
+	File FQCzipR1 = "${Name}_R1_val_1_fastqc.zip"
+	File FQChtmlR2 = "${Name}_R2_val_2_fastqc.html"
+	File FQCzipR2 = "${Name}_R2_val_2_fastqc.zip"
 	}
 }
