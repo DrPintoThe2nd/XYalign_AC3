@@ -31,7 +31,10 @@ workflow joint_calling {
     }
 
     output {
+        File genotyped_VCF = genotypeVCF.genotypedVCF
+        File genotyped_VCF_tbi = genotypeVCF.genotypedVCF_tbi
         File filtered_genotyped_VCF = filterVCF.filtered_genotyped_VCF
+        File filtered_genotyped_VCF_tbi = filterVCF.filtered_genotyped_VCF_tbi
     }
 }
 
@@ -61,11 +64,13 @@ task genotypeVCF {
             -L "~{chromosome}" \
             -V "gendb://~{chromosome}_GenomicsDB" \
             --only-output-calls-starting-in-intervals
+
+            tabix -p vcf "~{chromosome}.genotyped.vcf.gz"
     >>>
 
     runtime {
         docker : "drpintothe2nd/ac3_xysupp"
-        disks : "local-disk 50 HDD"
+        disks : "local-disk 200 HDD"
         memory: "12G"
         cpu : 1
         preemptible: 1
@@ -74,6 +79,7 @@ task genotypeVCF {
 
     output {
         File genotypedVCF = "~{chromosome}.genotyped.vcf.gz"
+        File genotypedVCF_tbi = "~{chromosome}.genotyped.vcf.gz.tbi"
     }
 }
 
@@ -103,6 +109,8 @@ task filterVCF {
             -O "~{chromosome}.filtered.genotyped.vcf.gz" --select-type-to-include SNP \
             --restrict-alleles-to BIALLELIC \
             -select "AN >= 4 && MQ > 40.0 && QD > 7.0 && DP >= 10.0 && DP <= 1000.0"
+
+        tabix -p vcf "~{chromosome}.filtered.genotyped.vcf.gz"
     >>>
 
     runtime {
@@ -116,5 +124,6 @@ task filterVCF {
 
     output {
         File filtered_genotyped_VCF = "~{chromosome}.filtered.genotyped.vcf.gz"
+        File filtered_genotyped_VCF_tbi = "~{chromosome}.filtered.genotyped.vcf.gz.tbi"
     }
 }
