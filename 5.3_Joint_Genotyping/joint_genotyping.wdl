@@ -27,6 +27,7 @@ workflow joint_calling {
             refIndex = refIndex,
             refDict = refDict,
             genotypedVCF = genotypeVCF.genotypedVCF,
+            genotypedVCF_tbi = genotypeVCF.genotypedVCF_tbi,
             chromosome = chromosome
     }
 
@@ -65,7 +66,7 @@ task genotypeVCF {
             -V "gendb://~{chromosome}_GenomicsDB" \
             --only-output-calls-starting-in-intervals
 
-            tabix -p vcf "~{chromosome}.genotyped.vcf.gz"
+#            tabix -p vcf "~{chromosome}.genotyped.vcf.gz"
     >>>
 
     runtime {
@@ -90,12 +91,16 @@ task filterVCF {
         File refDict
         String chromosome
         File genotypedVCF
+        File genotypedVCF_tbi
     }
 
     String fastaName='~{basename(refFasta)}'
+    String inputVCF='~{basename(genotypedVCF)}'
 
     command <<<
 
+        cp "~{genotypedVCF}" .
+        cp "~{genotypedVCF_tbi}" .
         cp "~{refFasta}" .
         cp "~{refIndex}" .
         cp "~{refDict}" .
@@ -104,13 +109,13 @@ task filterVCF {
             --java-options -Xmx8G \
             SelectVariants \
             -R "~{fastaName}" \
-            -V "~{genotypedVCF}" \
+            -V "~{inputVCF}" \
             -L "~{chromosome}" \
             -O "~{chromosome}.filtered.genotyped.vcf.gz" --select-type-to-include SNP \
             --restrict-alleles-to BIALLELIC \
             -select "AN >= 4 && MQ > 40.0 && QD > 7.0 && DP >= 10.0 && DP <= 1000.0"
 
-        tabix -p vcf "~{chromosome}.filtered.genotyped.vcf.gz"
+#        tabix -p vcf "~{chromosome}.filtered.genotyped.vcf.gz"
     >>>
 
     runtime {
