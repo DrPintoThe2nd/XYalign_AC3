@@ -44,16 +44,22 @@ task genotypeVCF {
         String chromosome
     }
 
+    String fastaName='~{basename(refFasta)}'
+
     command <<<
+
+        cp "~{refFasta}" .
+        cp "~{refIndex}" .
+        cp "~{refDict}" .
         tar -zvxf "~{genomicsDBtar}" -C .
 
         gatk \
             --java-options -Xmx8G \
             GenotypeGVCFs \
-            -R "~{refFasta}" \
+            -R "~{fastaName}" \
             -O "~{chromosome}.genotyped.vcf.gz" \
             -L "~{chromosome}" \
-            -V "gendb://~{chromosome}" \
+            -V "gendb://~{chromosome}_GenomicsDB" \
             --only-output-calls-starting-in-intervals
     >>>
 
@@ -80,12 +86,18 @@ task filterVCF {
         File genotypedVCF
     }
 
+    String fastaName='~{basename(refFasta)}'
+
     command <<<
+
+        cp "~{refFasta}" .
+        cp "~{refIndex}" .
+        cp "~{refDict}" .
 
         gatk \
             --java-options -Xmx8G \
             SelectVariants \
-            -R "~{refFasta}" \
+            -R "~{fastaName}" \
             -V "~{genotypedVCF}" \
             -L "~{chromosome}" \
             -O "~{chromosome}.filtered.genotyped.vcf.gz" --select-type-to-include SNP \
