@@ -44,12 +44,12 @@ task generateGenomicsDB {
 
     runtime {
         docker : "drpintothe2nd/ac3_xysupp"
-        disks : "local-disk 100 SSD"
+        disks : "local-disk 500 HDD"
         memory: "24G"
         cpu : 2
     }
 
     output {
-        File genomicsDB = "~{chromosome}_genomicsDB.tar.gz"
+        File genomicsDB = "~{genomicsDB}_genomicsDB.tar.gz"
     }
 }
