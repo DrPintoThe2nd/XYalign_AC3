@@ -1,5 +1,5 @@
 #written by Samantha Zarate
-#edited by Brendan Pinto
+#modified by Brendan Pinto
 
 version 1.0
 
@@ -26,25 +26,27 @@ task generateGenomicsDB {
         String chromosome
     }
 
+    String genomicsDB = '~{basename(sample_map, "_map.sample_map.tsv")}'
+
     command <<<
 
         cp "~{sample_map}" .
 
         gatk --java-options "-Xmx24g -Xms16g" GenomicsDBImport \
-            --sample-name-map "~{chromosome}_map.sample_map.tsv" \
-            --genomicsdb-workspace-path "~{chromosome}_GenomicsDB" \
+            --sample-name-map "~{genomicsDB}_map.sample_map.tsv" \
+            --genomicsdb-workspace-path "~{genomicsDB}_GenomicsDB" \
             --reader-threads $(nproc) \
             -L "~{chromosome}" \
             --batch-size 50
         
-        tar -zvcf "~{chromosome}_genomicsDB.tar.gz" "~{chromosome}_GenomicsDB"
+        tar -zvcf "~{genomicsDB}_genomicsDB.tar.gz" "~{genomicsDB}_GenomicsDB"
     >>>
 
     runtime {
         docker : "drpintothe2nd/ac3_xysupp"
         disks : "local-disk 100 SSD"
         memory: "24G"
-        cpu : 1
+        cpu : 2
     }
 
     output {
