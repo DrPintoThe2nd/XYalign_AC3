@@ -7,6 +7,6 @@ RUN conda config --add channels bioconda && conda config --add channels conda-fo
   
 RUN conda install mamba 
 
-RUN mamba install hisat2 gatk4 "samtools>=1.10" trim-galore bedtools bamtools bwa bbmap "openssl>=1.0" samblaster bcftools rtg-tools
+RUN mamba install --yes hisat2 gatk4 "samtools>=1.10" trim-galore bedtools bamtools bwa bbmap "openssl>=1.0" samblaster bcftools rtg-tools
 
 RUN mamba update -y -c r ncurses 
