@@ -1,5 +1,5 @@
 #written by Samantha Zarate
-#edited by Brendan J. Pinto
+#modified by Brendan J. Pinto
 
 version 1.0
 
@@ -49,6 +49,7 @@ task genotypeVCF {
     }
 
     String fastaName='~{basename(refFasta)}'
+    String vcf_string = '~{basename(genomicsDBtar, "_genomicsDB.tar.gz")}'
 
     command <<<
 
@@ -61,12 +62,11 @@ task genotypeVCF {
             --java-options -Xmx8G \
             GenotypeGVCFs \
             -R "~{fastaName}" \
-            -O "~{chromosome}.genotyped.vcf.gz" \
+            -O "~{chromosome}.~{vcf_string}.genotyped.vcf.gz" \
             -L "~{chromosome}" \
-            -V "gendb://~{chromosome}_GenomicsDB" \
+            -V "gendb://~{vcf_string}_genomicsDB" \
             --only-output-calls-starting-in-intervals
 
-#            tabix -p vcf "~{chromosome}.genotyped.vcf.gz"
     >>>
 
     runtime {
@@ -79,8 +79,8 @@ task genotypeVCF {
     }
 
     output {
-        File genotypedVCF = "~{chromosome}.genotyped.vcf.gz"
-        File genotypedVCF_tbi = "~{chromosome}.genotyped.vcf.gz.tbi"
+        File genotypedVCF = "~{chromosome}.~{vcf_string}.genotyped.vcf.gz"
+        File genotypedVCF_tbi = "~{chromosome}.~{vcf_string}.genotyped.vcf.gz.tbi"
     }
 }
 
@@ -96,6 +96,7 @@ task filterVCF {
 
     String fastaName='~{basename(refFasta)}'
     String inputVCF='~{basename(genotypedVCF)}'
+    String filter_string = '~{basename(genotypedVCF, ".genotyped.vcf.gz")}'
 
     command <<<
 
@@ -111,11 +112,10 @@ task filterVCF {
             -R "~{fastaName}" \
             -V "~{inputVCF}" \
             -L "~{chromosome}" \
-            -O "~{chromosome}.filtered.genotyped.vcf.gz" --select-type-to-include SNP \
+            -O "~{filter_string}.filtered.genotyped.vcf.gz" --select-type-to-include SNP \
             --restrict-alleles-to BIALLELIC \
             -select "AN >= 4 && MQ > 40.0 && QD > 7.0 && DP >= 10.0 && DP <= 1000.0"
 
-#        tabix -p vcf "~{chromosome}.filtered.genotyped.vcf.gz"
     >>>
 
     runtime {
@@ -128,7 +128,7 @@ task filterVCF {
     }
 
     output {
-        File filtered_genotyped_VCF = "~{chromosome}.filtered.genotyped.vcf.gz"
-        File filtered_genotyped_VCF_tbi = "~{chromosome}.filtered.genotyped.vcf.gz.tbi"
+        File filtered_genotyped_VCF = "~{filter_string}.filtered.genotyped.vcf.gz"
+        File filtered_genotyped_VCF_tbi = "~{filter_string}.filtered.genotyped.vcf.gz.tbi"
     }
 }
