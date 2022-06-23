@@ -1,0 +1,55 @@
+version: 1.2
+workflows:
+  - subclass: WDL
+    primaryDescriptorPath: /1_CRAM-to-BAM/CRAM-to-BAM.wdl
+    testParameterFiles:
+      - /1_CRAM-to-BAM/CRAM-to-BAM.json
+    name: CRAM-to-BAM
+    authors:
+      - orcid: 0000-0002-4243-5788
+  - subclass: WDL
+    primaryDescriptorPath: /2_StripReadsFromBams/StripReadsFromBam.wdl
+    testParameterFiles:
+      - /2_StripReadsFromBams/StripReadsFromBam.json
+    name: Strip-Reads-From-BAM
+    authors:
+      - orcid: 0000-0002-4243-5788
+  - subclass: WDL
+    primaryDescriptorPath: /3_read_alignment/t2t_alignment.wdl
+    testParameterFiles:
+        - /3_read_alignment/t2t_alignment.json
+    name: T2T-alignment
+    authors:
+      - orcid: 0000-0001-5570-2059
+      - orcid: 0000-0002-4243-5788
+  - subclass: WDL
+    primaryDescriptorPath: /4_haplotype_calling/haplotype_calling_chrom_female.wdl
+    testParameterFiles:
+        - /4_haplotype_calling/haplotype_calling_chrom_female.json
+    name: haplotype-calling-chrom-female
+    authors:
+      - orcid: 0000-0001-5570-2059
+      - orcid: 0000-0002-4243-5788
+  - subclass: WDL
+    primaryDescriptorPath: /5.1_Generate-Sample-Map/generate-sample-map.wdl
+    testParameterFiles:
+        - /5.1_Generate-Sample-Map/generate-sample-map.json
+    name: generate-sample-map
+    authors:
+      - orcid: 0000-0002-4243-5788
+  - subclass: WDL
+    primaryDescriptorPath: /5.2_generateGenomicsDB/t2t_genomics_db.wdl
+    testParameterFiles:
+        - /5.2_generateGenomicsDB/t2t_genomics_db.json
+    name: T2T-genomics-db
+    authors:
+      - orcid: 0000-0001-5570-2059
+      - orcid: 0000-0002-4243-5788
+  - subclass: WDL
+    primaryDescriptorPath: /5.3_Joint_Genotyping/joint_genotyping.wdl
+    testParameterFiles:
+        - /5.3_Joint_Genotyping/joint_genotyping.json
+    name: joint-genotyping
+    authors:
+      - orcid: 0000-0001-5570-2059
+      - orcid: 0000-0002-4243-5788
