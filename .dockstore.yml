@@ -6,7 +6,7 @@ workflows:
       - /1_CRAM-to-BAM/CRAM-to-BAM.json
     name: CRAM-to-BAM
     authors:
-      - orcid: 0000-0002-4243-5788
+      - orcid: Broad Institute
   - subclass: WDL
     primaryDescriptorPath: /2_StripReadsFromBams/StripReadsFromBam.wdl
     testParameterFiles:
@@ -36,7 +36,7 @@ workflows:
         - /5.1_Generate-Sample-Map/generate-sample-map.json
     name: generate-sample-map
     authors:
-      - orcid: 0000-0002-4243-5788
+      - orcid: Broad Institute
   - subclass: WDL
     primaryDescriptorPath: /5.2_generateGenomicsDB/t2t_genomics_db.wdl
     testParameterFiles:
