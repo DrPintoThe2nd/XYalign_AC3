@@ -1,5 +1,5 @@
 #written by Samantha Zarate
-#edited by Brendan Pinto
+#modified by Brendan Pinto
 
 version 1.0
 
