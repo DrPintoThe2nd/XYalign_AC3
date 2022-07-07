@@ -14,5 +14,7 @@ bash generateDecoyTranscriptome.sh -b ~/miniconda3/envs/salmon/bin/bedtools -m ~
 -t GCA_009914755.4_CHM13_T2T_v2.0_genomic_YHardMasked_ChrNamesAdded_transcripts_XY.fasta -o decoy_XY/ -j 4;
 
 salmon index -t decoy_RAW/gentrome.fa -d decoy_RAW/decoys.txt -i salmon_index_RAW;
+tar -cvzf salmon_index_RAW.tar.gz salmon_index_RAW/
 
 salmon index -t decoy_XY/gentrome.fa -d decoy_XY/decoys.txt -i salmon_index_XY;
+tar -cvzf salmon_index_XY.tar.gz salmon_index_XY/
