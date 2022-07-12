@@ -4,7 +4,6 @@ version 1.0
 
 workflow t2t_alignment {
     input {
-        File targetRef
         String sampleName
         File inputFastq1
         File inputFastq2
