@@ -1,7 +1,6 @@
 {
-  "t2t_alignment.inputFastq2": "File",
-  "t2t_alignment.inputFastq1": "File",
-  "t2t_alignment.salmonIndexTar": "File",
-  "t2t_alignment.sampleName": "String"
+  "salmon.inputFastq2": "File",
+  "salmon.inputFastq1": "File",
+  "salmon.salmonIndexTar": "File",
+  "salmon.sampleName": "String"
 }
-

@@ -2,7 +2,7 @@
 
 version 1.0
 
-workflow t2t_alignment {
+workflow salmon {
     input {
         String sampleName
         File inputFastq1
@@ -49,7 +49,7 @@ task salmonQuant {
 
         tar -zxzf "~{tarName}"
 
-        salmon quant -i "./~{tarDir}" -l A -p "$(nproc)" -1 "./~{fastqName1}" -2 "./~{fastqName2}" --gcBias --validateMappings -o "quants/~{sampleName}"
+        salmon quant -i "./~{tarDir}" -l A -p "$(nproc)" -1 "./~{fastqName1}" -2 "./~{fastqName2}" --gcBias --validateMappings -o "~{sampleName}"
 
     >>>
 
@@ -61,6 +61,6 @@ task salmonQuant {
     }
 
     output {
-        File quant = "quants/~{sampleName}"
+        File quant = "~{sampleName}"
     }
 }
