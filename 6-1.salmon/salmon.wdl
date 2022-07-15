@@ -20,6 +20,7 @@ workflow salmon {
 
     output {
         File salmon = salmonQuant.quant
+        File log = salmonQuant.log
     }
 }
 
@@ -49,7 +50,7 @@ task salmonQuant {
 
         tar -zxzf "~{tarName}"
 
-        salmon quant -i "./~{tarDir}" -l A -p "$(nproc)" -1 "./~{fastqName1}" -2 "./~{fastqName2}" --gcBias --validateMappings -o "~{sampleName}"
+        salmon quant -i "./~{tarDir}" -l IU -p "$(nproc)" -1 "./~{fastqName1}" -2 "./~{fastqName2}" --gcBias --validateMappings -o "~{sampleName}"
 
     >>>
 
@@ -61,6 +62,7 @@ task salmonQuant {
     }
 
     output {
-        File quant = "~{sampleName}"
+        File quant = "~{sampleName}/quant.sf"
+        File log = "~{sampleName}/logs/salmon_quant.log"
     }
 }
