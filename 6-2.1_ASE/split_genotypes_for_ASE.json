@@ -1,0 +1,10 @@
+{
+  "VCF_split_filter.refDict": "File",
+  "VCF_split_filter.filtered_genotyped_VCF_tbi": "File",
+  "VCF_split_filter.refIndex": "File",
+  "VCF_split_filter.filtered_genotyped_VCF": "File",
+  "VCF_split_filter.chromosome": "String",
+  "VCF_split_filter.sampleName": "String",
+  "VCF_split_filter.refFasta": "File"
+}
+
