@@ -1,0 +1,8 @@
+{
+  "t2t_RNAalignment.targetRef": "File",
+  "t2t_RNAalignment.sampleName": "String",
+  "t2t_RNAalignment.inputFastq2": "File",
+  "t2t_RNAalignment.hisatIndexTar": "File",
+  "t2t_RNAalignment.inputFastq1": "File"
+}
+
