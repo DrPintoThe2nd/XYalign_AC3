@@ -1,7 +1,8 @@
 {
-  "process_quants.chrX_transcripts": "File",
   "process_quants.sampleName": "String",
+  "process_quants.quants_xy": "File",
+  "process_quants.quants_raw": "File",
   "process_quants.chr8_transcripts": "File",
-  "process_quants.quants": "File"
+  "process_quants.chrX_transcripts": "File"
 }
 
