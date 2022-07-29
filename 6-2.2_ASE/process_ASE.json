@@ -1,0 +1,12 @@
+{
+  "process_ASE.ASE_tsv": "File",
+  "process_ASE.remove_duplicates": "File",
+  "process_ASE.transcripts": "File",
+  "process_ASE.calc_variants_in_coding_regions": "File",
+  "process_ASE.chromosome": "String",
+  "process_ASE.compute_allele_balance": "File",
+  "process_ASE.tissue": "String",
+  "process_ASE.convert_unphased_data_to_bed": "File",
+  "process_ASE.sampleName": "String"
+}
+
