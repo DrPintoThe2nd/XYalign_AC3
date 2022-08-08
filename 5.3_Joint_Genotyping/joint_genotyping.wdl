@@ -114,7 +114,7 @@ task filterVCF {
             -L "~{chromosome}" \
             -O "~{filter_string}.filtered.genotyped.vcf.gz" --select-type-to-include SNP \
             --restrict-alleles-to BIALLELIC \
-            -select "AN >= 4 && MQ > 40.0 && QD > 7.0 && DP >= 10.0 && DP <= 1000.0"
+            -select "AN >= 4 && MQ > 40.0 && QD > 7.0 && DP >= 10.0 && DP <= 2500.0"
 
     >>>
 
