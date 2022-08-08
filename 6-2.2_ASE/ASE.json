@@ -1,0 +1,14 @@
+{
+  "ASEreadcounter.refDict": "File",
+  "ASEreadcounter.RNA_bam": "File",
+  "ASEreadcounter.ASE.tissue": "String",
+  "ASEreadcounter.tissue": "String",
+  "ASEreadcounter.ASE_VCF_tbi": "File",
+  "ASEreadcounter.refFasta": "File",
+  "ASEreadcounter.ASE_VCF": "File",
+  "ASEreadcounter.RNA_bai": "File",
+  "ASEreadcounter.refIndex": "File",
+  "ASEreadcounter.sampleName": "String",
+  "ASEreadcounter.chromosome": "String"
+}
+
