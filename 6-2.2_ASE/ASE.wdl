@@ -9,7 +9,6 @@ workflow ASEreadcounter {
         File ASE_VCF_tbi
         File RNA_bam
         File RNA_bai
-        String tissue
         String chromosome
         File refFasta
         File refIndex
@@ -69,8 +68,8 @@ task ASE {
 
     runtime {
         docker : "drpintothe2nd/ac3_xysupp"
-        disks : "local-disk 50 HDD"
-        memory: "12G"
+        disks : "local-disk 100 HDD"
+        memory: "24G"
         cpu : 1
         preemptible: 1
         maxRetries: 1
