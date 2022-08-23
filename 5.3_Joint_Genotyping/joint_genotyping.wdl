@@ -64,14 +64,14 @@ task genotypeVCF {
             -R "~{fastaName}" \
             -O "~{chromosome}.~{vcf_string}.genotyped.vcf.gz" \
             -L "~{chromosome}" \
-            -V "gendb://~{vcf_string}_genomicsDB" \
+            -V "gendb://~{vcf_string}_GenomicsDB" \
             --only-output-calls-starting-in-intervals
 
     >>>
 
     runtime {
         docker : "drpintothe2nd/ac3_xysupp"
-        disks : "local-disk 200 HDD"
+        disks : "local-disk 300 HDD"
         memory: "12G"
         cpu : 1
         preemptible: 1
@@ -120,7 +120,7 @@ task filterVCF {
 
     runtime {
         docker : "drpintothe2nd/ac3_xysupp"
-        disks : "local-disk 50 HDD"
+        disks : "local-disk 100 HDD"
         memory: "12G"
         cpu : 1
         preemptible: 1
