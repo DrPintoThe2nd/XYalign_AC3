@@ -1,0 +1,5 @@
+{
+  "make_tar.directory": "String",
+  "make_tar.inputFiles": "Array[File]"
+}
+
