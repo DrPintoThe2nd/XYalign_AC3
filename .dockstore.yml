@@ -89,3 +89,31 @@ workflows:
     name: collate_quant_diffs
     authors:
       - orcid: 0000-0002-4243-5788
+  - subclass: WDL
+    primaryDescriptorPath: /6-2.2_ASE/split_genotypes_for_ASE.wdl
+    testParameterFiles:
+        - /6-1.salmon/split_genotypes_for_ASE.json
+    name: split_genotypes_for_ASE
+    authors:
+      - orcid: 0000-0002-4243-5788
+  - subclass: WDL
+    primaryDescriptorPath: /6-2.2_ASE/ASE.wdl
+    testParameterFiles:
+        - /6-1.salmon/ASE.json
+    name: ASE
+    authors:
+      - orcid: 0000-0002-4243-5788
+  - subclass: WDL
+    primaryDescriptorPath: /6-2.2_ASE/collate_ASE_stats.wdl
+    testParameterFiles:
+        - /6-1.salmon/collate_ASE_stats.json
+    name: collate_ASE_stats
+    authors:
+      - orcid: 0000-0002-4243-5788
+  - subclass: WDL
+    primaryDescriptorPath: /6-2.2_ASE/process_ASE.wdl
+    testParameterFiles:
+        - /6-1.salmon/process_ASE.json
+    name: process_ASE
+    authors:
+      - orcid: 0000-0002-4243-5788
