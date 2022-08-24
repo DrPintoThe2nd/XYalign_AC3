@@ -1,0 +1,5 @@
+{
+  "collate_data.filename": "String",
+  "collate_data.inputFiles": "Array[File]"
+}
+
