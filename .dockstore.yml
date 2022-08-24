@@ -81,7 +81,6 @@ workflows:
     name: collate_raw_quants
     authors:
       - orcid: 0000-0002-4243-5788
-
   - subclass: WDL
     primaryDescriptorPath: /6-1.salmon/collate_quant_diffs.wdl
     testParameterFiles:
@@ -90,31 +89,38 @@ workflows:
     authors:
       - orcid: 0000-0002-4243-5788
   - subclass: WDL
+    primaryDescriptorPath: /6-2.2_ASE/hisat2_alignment.wdl
+    testParameterFiles:
+        - /6-2.2_ASE/hisat2_alignment.json
+    name: hisat2_alignment
+    authors:
+      - orcid: 0000-0002-4243-5788
+  - subclass: WDL
     primaryDescriptorPath: /6-2.2_ASE/split_genotypes_for_ASE.wdl
     testParameterFiles:
-        - /6-1.salmon/split_genotypes_for_ASE.json
+        - /6-2.2_ASE/split_genotypes_for_ASE.json
     name: split_genotypes_for_ASE
     authors:
       - orcid: 0000-0002-4243-5788
   - subclass: WDL
     primaryDescriptorPath: /6-2.2_ASE/ASE.wdl
     testParameterFiles:
-        - /6-1.salmon/ASE.json
+        - /6-2.2_ASE/ASE.json
     name: ASE
-    authors:
-      - orcid: 0000-0002-4243-5788
-  - subclass: WDL
-    primaryDescriptorPath: /6-2.2_ASE/collate_ASE_stats.wdl
-    testParameterFiles:
-        - /6-1.salmon/collate_ASE_stats.json
-    name: collate_ASE_stats
     authors:
       - orcid: 0000-0002-4243-5788
   - subclass: WDL
     primaryDescriptorPath: /6-2.2_ASE/process_ASE.wdl
     testParameterFiles:
-        - /6-1.salmon/process_ASE.json
+        - /6-2.2_ASE/process_ASE.json
     name: process_ASE
+    authors:
+      - orcid: 0000-0002-4243-5788
+  - subclass: WDL
+    primaryDescriptorPath: /6-2.2_ASE/collate_ASE_stats.wdl
+    testParameterFiles:
+        - /6-2.2_ASE/collate_ASE_stats.json
+    name: collate_ASE_stats
     authors:
       - orcid: 0000-0002-4243-5788
   - subclass: WDL
