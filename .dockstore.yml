@@ -53,3 +53,39 @@ workflows:
     authors:
       - orcid: 0000-0001-5570-2059
       - orcid: 0000-0002-4243-5788
+  - subclass: WDL
+    primaryDescriptorPath: /6-1.salmon/salmon.wdl
+    testParameterFiles:
+        - /6-1.salmon/salmon.json
+    name: salmon
+    authors:
+      - orcid: 0000-0002-4243-5788
+  - subclass: WDL
+    primaryDescriptorPath: /6-1.salmon/process_quants.wdl
+    testParameterFiles:
+        - /6-1.salmon/process_quants.json
+    name: process_quants
+    authors:
+      - orcid: 0000-0002-4243-5788
+  - subclass: WDL
+    primaryDescriptorPath: /6-1.salmon/collate_xy_quants.wdl
+    testParameterFiles:
+        - /6-1.salmon/collate_xy_quants.json
+    name: collate_xy_quants
+    authors:
+      - orcid: 0000-0002-4243-5788
+  - subclass: WDL
+    primaryDescriptorPath: /6-1.salmon/collate_raw_quants.wdl
+    testParameterFiles:
+        - /6-1.salmon/collate_raw_quants.json
+    name: collate_raw_quants
+    authors:
+      - orcid: 0000-0002-4243-5788
+
+  - subclass: WDL
+    primaryDescriptorPath: /6-1.salmon/collate_quant_diffs.wdl
+    testParameterFiles:
+        - /6-1.salmon/collate_quant_diffs.json
+    name: collate_quant_diffs
+    authors:
+      - orcid: 0000-0002-4243-5788
