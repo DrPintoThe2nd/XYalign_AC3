@@ -117,3 +117,17 @@ workflows:
     name: process_ASE
     authors:
       - orcid: 0000-0002-4243-5788
+  - subclass: WDL
+    primaryDescriptorPath: /misc/calc_stats.wdl
+    testParameterFiles:
+        - /misc/calc_stats.json
+    name: calc_stats
+    authors:
+      - orcid: 0000-0002-4243-5788
+  - subclass: WDL
+    primaryDescriptorPath: /misc/tarchive.wdl
+    testParameterFiles:
+        - /misc/tarchive.json
+    name: tarchive
+    authors:
+      - orcid: 0000-0002-4243-5788
