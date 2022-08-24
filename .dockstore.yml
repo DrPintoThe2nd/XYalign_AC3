@@ -89,9 +89,9 @@ workflows:
     authors:
       - orcid: 0000-0002-4243-5788
   - subclass: WDL
-    primaryDescriptorPath: /6-2.2_ASE/hisat2_alignment.wdl
+    primaryDescriptorPath: /6-2.1_Hisat2_alignment/hisat2_alignment.wdl
     testParameterFiles:
-        - /6-2.2_ASE/hisat2_alignment.json
+        - /6-2.1_Hisat2_alignment/hisat2_alignment.json
     name: hisat2_alignment
     authors:
       - orcid: 0000-0002-4243-5788
