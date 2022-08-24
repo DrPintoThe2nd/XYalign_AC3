@@ -53,6 +53,7 @@ workflows:
     authors:
       - orcid: 0000-0001-5570-2059
       - orcid: 0000-0002-4243-5788
+
   - subclass: WDL
     primaryDescriptorPath: /6-1.salmon/salmon.wdl
     testParameterFiles:
@@ -88,6 +89,7 @@ workflows:
     name: collate_quant_diffs
     authors:
       - orcid: 0000-0002-4243-5788
+
   - subclass: WDL
     primaryDescriptorPath: /6-2.1_Hisat2_alignment/hisat2_alignment.wdl
     testParameterFiles:
@@ -95,6 +97,7 @@ workflows:
     name: hisat2_alignment
     authors:
       - orcid: 0000-0002-4243-5788
+      
   - subclass: WDL
     primaryDescriptorPath: /6-2.2_ASE/split_genotypes_for_ASE.wdl
     testParameterFiles:
@@ -123,6 +126,7 @@ workflows:
     name: collate_ASE_stats
     authors:
       - orcid: 0000-0002-4243-5788
+
   - subclass: WDL
     primaryDescriptorPath: /misc/calc_stats.wdl
     testParameterFiles:
