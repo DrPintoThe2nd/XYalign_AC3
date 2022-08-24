@@ -38,6 +38,14 @@ Step outlines:
 
 (6.0.2) Generate appropriate HiSat2 reference for RNAseq alignment (hisat2).
 
-(6.2) 
+(6.2.1) Align RNAseq reads to reference genomes using Hisat2 (hisat2, hisat2_alignment.wdl) 
 
+(6.2.2a) Split jointly genotyped VCF files into individual VCFs for downstream ASE analysis (bcftools, split_genotypes_for_ASE.wdl)
 
+(6.2.2b) Run ASEReadCounter for all samples (gatk, ASE.wdl)
+
+(6.2.2c) Process ASE outputs, calculating allele balance and removing duplicate records (custom python scripts, process_ASE.wdl)
+
+(6.2.2c) collate ASE summary information from each sample (collate_ASE_stats.wdl)
+
+(Final step) Generate zipped tar archives for final data outputs that should be backed up locally prior to publication (misc/tarchive.wdl)
